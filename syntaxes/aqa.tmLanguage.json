@@ -1,32 +1,349 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"scopeName": "source.aqa",
 	"name": "AQA Assembly",
+	"fileTypes": [
+		"aqa"
+	],
 	"patterns": [
 		{
-			"include": "#keywords"
+			"include": "#comment"
 		},
 		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.aqa",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.aqa",
-			"begin": "\"",
-			"end": "\"",
 			"patterns": [
 				{
-					"name": "constant.character.escape.aqa",
-					"match": "\\\\."
+					"match": "^(\\w+):",
+					"captures": {
+						"1": {
+							"name": "entity.name.tag.aqa"
+						}
+					}
+				}
+			]
+		},
+		{
+			"patterns": [
+				{
+					"name": "support.function.memory.aqa",
+					"match": "(?i)^(?:LDR|STR)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
+					"captures": {
+						"1": {
+							"patterns": [
+								{
+									"include": "#register"
+								},
+								{
+									"match": ".*",
+									"name": "invalid.illegal.register.aqa"
+								}
+							]
+						},
+						"2": {
+							"name": "punctuation.separator"
+						},
+						"3": {
+							"patterns": [
+								{
+									"include": "#memory"
+								},
+								{
+									"match": ".*",
+									"name": "invalid.illegal.memory.aqa"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "support.function.arithmetic.aqa",
+					"match": "(?i)^(?:ADD|SUB)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
+					"captures": {
+						"1": {
+							"patterns": [
+								{
+									"include": "#register"
+								},
+								{
+									"match": ".*",
+									"name": "invalid.illegal.register.aqa"
+								}
+							]
+						},
+						"2": {
+							"name": "punctuation.separator"
+						},
+						"3": {
+							"patterns": [
+								{
+									"include": "#register"
+								},
+								{
+									"match": ".*",
+									"name": "invalid.illegal.register.aqa"
+								}
+							]
+						},
+						"4": {
+							"name": "punctuation.separator"
+						},
+						"5": {
+							"patterns": [
+								{
+									"include": "#operand2"
+								},
+								{
+									"match": ".*",
+									"name": "invalid.illegal.operand2.aqa"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "support.function.misc.aqa",
+					"match": "(?i)^(?:MOV|CMP)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
+					"captures": {
+						"1": {
+							"patterns": [
+								{
+									"include": "#register"
+								},
+								{
+									"match": ".*",
+									"name": "invalid.illegal.register.aqa"
+								}
+							]
+						},
+						"2": {
+							"name": "punctuation.separator"
+						},
+						"3": {
+							"patterns": [
+								{
+									"include": "#operand2"
+								},
+								{
+									"match": ".*",
+									"name": "invalid.illegal.operand2.aqa"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "support.function.branch.aqa",
+					"match": "(?i)^(?:B)(\\w+)?(?:[ \\t]+(\\w+))?",
+					"captures": {
+						"1": {
+							"patterns": [
+								{
+									"include": "#condition"
+								},
+								{
+									"match": ".*",
+									"name": "invalid.illegal.condition.aqa"
+								}
+							]
+						},
+						"2": {
+							"patterns": [
+								{
+									"include": "#label"
+								},
+								{
+									"match": ".*",
+									"name": "invalid.illegal.label.aqa"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "support.function.bitwise.aqa",
+					"match": "(?i)^(?:AND|ORR|EOR)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
+					"captures": {
+						"1": {
+							"patterns": [
+								{
+									"include": "#register"
+								},
+								{
+									"match": ".*",
+									"name": "invalid.illegal.register.aqa"
+								}
+							]
+						},
+						"2": {
+							"name": "punctuation.separator"
+						},
+						"3": {
+							"patterns": [
+								{
+									"include": "#register"
+								},
+								{
+									"match": ".*",
+									"name": "invalid.illegal.register.aqa"
+								}
+							]
+						},
+						"4": {
+							"name": "punctuation.separator"
+						},
+						"5": {
+							"patterns": [
+								{
+									"include": "#operand2"
+								},
+								{
+									"match": ".*",
+									"name": "invalid.illegal.operand2.aqa"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "support.function.bitwise.aqa",
+					"match": "(?i)^(?:MVN)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
+					"captures": {
+						"1": {
+							"patterns": [
+								{
+									"include": "#register"
+								},
+								{
+									"match": ".*",
+									"name": "invalid.illegal.register.aqa"
+								}
+							]
+						},
+						"2": {
+							"name": "punctuation.separator"
+						},
+						"3": {
+							"patterns": [
+								{
+									"include": "#operand2"
+								},
+								{
+									"match": ".*",
+									"name": "invalid.illegal.operand2.aqa"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "support.function.shift.aqa",
+					"match": "(?i)^(?:LSL|LSR)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
+					"captures": {
+						"1": {
+							"patterns": [
+								{
+									"include": "#register"
+								},
+								{
+									"match": ".*",
+									"name": "invalid.illegal.register.aqa"
+								}
+							]
+						},
+						"2": {
+							"name": "punctuation.separator"
+						},
+						"3": {
+							"patterns": [
+								{
+									"include": "#register"
+								},
+								{
+									"match": ".*",
+									"name": "invalid.illegal.register.aqa"
+								}
+							]
+						},
+						"4": {
+							"name": "punctuation.separator"
+						},
+						"5": {
+							"patterns": [
+								{
+									"include": "#operand2"
+								},
+								{
+									"match": ".*",
+									"name": "invalid.illegal.operand2.aqa"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "support.function.halt.aqa",
+					"match": "(?i)^HALT"
 				}
 			]
 		}
-	},
-	"scopeName": "source.aqa"
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"match": ";.*",
+					"name": "comment.line.semicolon.aqa"
+				}
+			]
+		},
+		"label": {
+			"patterns": [
+				{
+					"name": "variable.named.aqa",
+					"match": "\\w+\\b"
+				}
+			]
+		},
+		"numeric": {
+			"patterns": [
+				{
+					"name": "constant.numeric.aqa",
+					"match": "#[0-9]+\\b"
+				}
+			]
+		},
+		"register": {
+			"patterns": [
+				{
+					"name": "storage.register.aqa",
+					"match": "(?i)\\bR(?:0|(?:1(?:0|1|2)?)|2|3|4|5|6|7|8|9)\\b"
+				}
+			]
+		},
+		"memory": {
+			"patterns": [
+				{
+					"name": "storage.memory.aqa",
+					"match": "\\b[0-9]+\\b"
+				}
+			]
+		},
+		"operand2": {
+			"patterns": [
+				{
+					"include": "#numeric"
+				},
+				{
+					"include": "#register"
+				}
+			]
+		},
+		"condition": {
+			"patterns": [
+				{
+					"name": "meta.type.condition.aqa",
+					"match": "(?i)(?:EQ|NE|LT|GT)\\b"
+				}
+			]
+		}
+	}
 }
