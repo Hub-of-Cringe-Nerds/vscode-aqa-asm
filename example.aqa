@@ -1,69 +1,68 @@
 ; TODO: Add something at the end of the instruction's line that'll mark anything following as invalid, unless it's only spaces, or is a comment (e.g. STR R0, #34 Dingus)
 ; TODO: Add something at the end of the instruction that'll mark anything following (without a space) as invalid (e.g. HALTTT)
-; TODO: What to do about labels like 'din%gus'? (Technically they should be valid according to the spec, which doesn't define any invalid characters, but I think it should only be '\w+', so maybe mark as invalid?)
 
 ; LDR
 LDR
-LDR 34          ; Should be incorrect
-LDR #35         ; Should be incorrect
-LDR R13         ; Should be incorrect
-LDR R0, #34     ; Should be incorrect
-LDR R0, R1      ; Should be incorrect
+LDR 34              ; Should be incorrect
+LDR #35             ; Should be incorrect
+LDR R13             ; Should be incorrect
+LDR R0, #34         ; Should be incorrect
+LDR R0, R1          ; Should be incorrect
 LDR R0, 35
 
 ; STR
 STR
-STR 34          ; Should be incorrect
-STR #35         ; Should be incorrect
-STR R13         ; Should be incorrect
-STR R0, #34     ; Should be incorrect
-STR R0, R1      ; Should be incorrect
+STR 34              ; Should be incorrect
+STR #35             ; Should be incorrect
+STR R13             ; Should be incorrect
+STR R0, #34         ; Should be incorrect
+STR R0, R1          ; Should be incorrect
 STR R0, 35
 
 ; ADD
 ADD
-ADD 34          ; Should be incorrect
-ADD #35         ; Should be incorrect
-ADD R13         ; Should be incorrect
-ADD R0, R13     ; Should be incorrect
-ADD R0, #34     ; Should be incorrect
-ADD R0, 35      ; Should be incorrect
+ADD 34              ; Should be incorrect
+ADD #35             ; Should be incorrect
+ADD R13             ; Should be incorrect
+ADD R0, R13         ; Should be incorrect
+ADD R0, #34         ; Should be incorrect
+ADD R0, 35          ; Should be incorrect
 ADD R0, R1
-ADD R0, R1, R13 ; Should be incorrect
-ADD R0, R1, 34  ; Should be incorrect
+ADD R0, R1, R13     ; Should be incorrect
+ADD R0, R1, 34      ; Should be incorrect
 ADD R0, R1, #35
 ADD R0, R1, R2
 
 ; ADD
 ADD
-ADD 34          ; Should be incorrect
-ADD #35         ; Should be incorrect
-ADD R13         ; Should be incorrect
-ADD R0, R13     ; Should be incorrect
-ADD R0, #34     ; Should be incorrect
-ADD R0, 35      ; Should be incorrect
+ADD 34              ; Should be incorrect
+ADD #35             ; Should be incorrect
+ADD R13             ; Should be incorrect
+ADD R0, R13         ; Should be incorrect
+ADD R0, #34         ; Should be incorrect
+ADD R0, 35          ; Should be incorrect
 ADD R0, R1
-ADD R0, R1, R13 ; Should be incorrect
-ADD R0, R1, 34  ; Should be incorrect
+ADD R0, R1, R13     ; Should be incorrect
+ADD R0, R1, 34      ; Should be incorrect
 ADD R0, R1, #35
 ADD R0, R1, R2
 
 ; MOV
 MOV
-MOV 34          ; Should be incorrect
-MOV #35         ; Should be incorrect
-MOV R13         ; Should be incorrect
-MOV R0, R13     ; Should be incorrect
-MOV R0, 34      ; Should be incorrect
+MOV 34              ; Should be incorrect
+MOV #35             ; Should be incorrect
+MOV R13             ; Should be incorrect
+MOV R0, R13         ; Should be incorrect
+MOV R0, 34          ; Should be incorrect
 MOV R0, #35
 
 ; CMP
 CMP
-CMP 34          ; Should be incorrect
-CMP #35         ; Should be incorrect
-CMP R13         ; Should be incorrect
-CMP R0, R13     ; Should be incorrect
-CMP R0, 34      ; Should be incorrect
+CMP 34              ; Should be incorrect
+CMP #35             ; Should be incorrect
+CMP R13             ; Should be incorrect
+CMP R0, R13         ; Should be incorrect
+CMP R0, 34          ; Should be incorrect
 CMP R0, #35
 
 ; B
@@ -93,81 +92,81 @@ BLT din%gus     ; TODO
 
 ; AND
 AND
-AND 34          ; Should be incorrect
-AND #35         ; Should be incorrect
-AND R13         ; Should be incorrect
-AND R0, R13     ; Should be incorrect
-AND R0, #34     ; Should be incorrect
-AND R0, 35      ; Should be incorrect
+AND 34              ; Should be incorrect
+AND #35             ; Should be incorrect
+AND R13             ; Should be incorrect
+AND R0, R13         ; Should be incorrect
+AND R0, #34         ; Should be incorrect
+AND R0, 35          ; Should be incorrect
 AND R0, R1
-AND R0, R1, R13 ; Should be incorrect
-AND R0, R1, 34  ; Should be incorrect
+AND R0, R1, R13     ; Should be incorrect
+AND R0, R1, 34      ; Should be incorrect
 AND R0, R1, #35
 AND R0, R1, R2
 
 ; ORR
 ORR
-ORR 34          ; Should be incorrect
-ORR #35         ; Should be incorrect
-ORR R13         ; Should be incorrect
-ORR R0, R13     ; Should be incorrect
-ORR R0, #34     ; Should be incorrect
-ORR R0, 35      ; Should be incorrect
+ORR 34              ; Should be incorrect
+ORR #35             ; Should be incorrect
+ORR R13             ; Should be incorrect
+ORR R0, R13         ; Should be incorrect
+ORR R0, #34         ; Should be incorrect
+ORR R0, 35          ; Should be incorrect
 ORR R0, R1
-ORR R0, R1, R13 ; Should be incorrect
-ORR R0, R1, 34  ; Should be incorrect
+ORR R0, R1, R13     ; Should be incorrect
+ORR R0, R1, 34      ; Should be incorrect
 ORR R0, R1, #35
 ORR R0, R1, R2
 
 ; EOR
 EOR
-EOR 34          ; Should be incorrect
-EOR #35         ; Should be incorrect
-EOR R13         ; Should be incorrect
-EOR R0, R13     ; Should be incorrect
-EOR R0, #34     ; Should be incorrect
-EOR R0, 35      ; Should be incorrect
+EOR 34              ; Should be incorrect
+EOR #35             ; Should be incorrect
+EOR R13             ; Should be incorrect
+EOR R0, R13         ; Should be incorrect
+EOR R0, #34         ; Should be incorrect
+EOR R0, 35          ; Should be incorrect
 EOR R0, R1
-EOR R0, R1, R13 ; Should be incorrect
-EOR R0, R1, 34  ; Should be incorrect
+EOR R0, R1, R13     ; Should be incorrect
+EOR R0, R1, 34      ; Should be incorrect
 EOR R0, R1, #35
 EOR R0, R1, R2
 
 ; MVN
 MVN
-MVN 34          ; Should be incorrect
-MVN #35         ; Should be incorrect
-MVN R13         ; Should be incorrect
+MVN 34              ; Should be incorrect
+MVN #35             ; Should be incorrect
+MVN R13             ; Should be incorrect
 MVN R1
-MVN R1, R13     ; Should be incorrect
-MVN R1, 34      ; Should be incorrect
+MVN R1, R13         ; Should be incorrect
+MVN R1, 34          ; Should be incorrect
 MVN R1, #35
 
 ; LSL
 LSL
-LSL 34          ; Should be incorrect
-LSL #35         ; Should be incorrect
-LSL R13         ; Should be incorrect
-LSL R0, R13     ; Should be incorrect
-LSL R0, #34     ; Should be incorrect
-LSL R0, 35      ; Should be incorrect
+LSL 34              ; Should be incorrect
+LSL #35             ; Should be incorrect
+LSL R13             ; Should be incorrect
+LSL R0, R13         ; Should be incorrect
+LSL R0, #34         ; Should be incorrect
+LSL R0, 35          ; Should be incorrect
 LSL R0, R1
-LSL R0, R1, R13 ; Should be incorrect
-LSL R0, R1, 34  ; Should be incorrect
+LSL R0, R1, R13     ; Should be incorrect
+LSL R0, R1, 34      ; Should be incorrect
 LSL R0, R1, #35
 LSL R0, R1, R2
 
 ; LSR
 LSR
-LSR 34          ; Should be incorrect
-LSR #35         ; Should be incorrect
-LSR R13         ; Should be incorrect
-LSR R0, R13     ; Should be incorrect
-LSR R0, #34     ; Should be incorrect
-LSR R0, 35      ; Should be incorrect
+LSR 34              ; Should be incorrect
+LSR #35             ; Should be incorrect
+LSR R13             ; Should be incorrect
+LSR R0, R13         ; Should be incorrect
+LSR R0, #34         ; Should be incorrect
+LSR R0, 35          ; Should be incorrect
 LSR R0, R1
-LSR R0, R1, R13 ; Should be incorrect
-LSR R0, R1, 34  ; Should be incorrect
+LSR R0, R1, R13     ; Should be incorrect
+LSR R0, R1, 34      ; Should be incorrect
 LSR R0, R1, #35
 LSR R0, R1, R2
 
@@ -177,6 +176,9 @@ HALT
 ; Labels
 
 dingus:
+dingus:MOV R0, #35
+dingus: MOV R0, #35
 
-din%us:         ; TODO
-
+din%us:
+din%us:MOV R0, #35
+din%us: MOV R0, #35

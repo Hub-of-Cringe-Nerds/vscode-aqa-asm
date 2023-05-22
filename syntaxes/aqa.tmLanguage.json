@@ -12,20 +12,44 @@
 		{
 			"patterns": [
 				{
-					"match": "^(\\w+):",
+					"match": "^(\\S+?):[ \\t]?(.+)?",
 					"captures": {
 						"1": {
-							"name": "entity.name.tag.aqa"
+							"patterns": [
+								{
+									"include": "#label"
+								}
+							]
+						},
+						"2": {
+							"patterns": [
+								{
+									"include": "#instruction"
+								}
+							]
 						}
 					}
 				}
 			]
 		},
 		{
+			"include": "#instruction"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"match": ";.*",
+					"name": "comment.line.semicolon.aqa"
+				}
+			]
+		},
+		"instruction": {
 			"patterns": [
 				{
 					"name": "support.function.memory.aqa",
-					"match": "(?i)^(?:LDR|STR)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
+					"match": "(?i)(?:LDR|STR)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
 					"captures": {
 						"1": {
 							"patterns": [
@@ -56,7 +80,7 @@
 				},
 				{
 					"name": "support.function.arithmetic.aqa",
-					"match": "(?i)^(?:ADD|SUB)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
+					"match": "(?i)(?:ADD|SUB)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
 					"captures": {
 						"1": {
 							"patterns": [
@@ -101,7 +125,7 @@
 				},
 				{
 					"name": "support.function.misc.aqa",
-					"match": "(?i)^(?:MOV|CMP)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
+					"match": "(?i)(?:MOV|CMP)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
 					"captures": {
 						"1": {
 							"patterns": [
@@ -132,7 +156,7 @@
 				},
 				{
 					"name": "support.function.branch.aqa",
-					"match": "(?i)^(?:B)(\\w+)?(?:[ \\t]+(\\w+))?",
+					"match": "(?i)(?:B)(\\w+)?(?:[ \\t]+(\\w+))?",
 					"captures": {
 						"1": {
 							"patterns": [
@@ -160,7 +184,7 @@
 				},
 				{
 					"name": "support.function.bitwise.aqa",
-					"match": "(?i)^(?:AND|ORR|EOR)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
+					"match": "(?i)(?:AND|ORR|EOR)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
 					"captures": {
 						"1": {
 							"patterns": [
@@ -205,7 +229,7 @@
 				},
 				{
 					"name": "support.function.bitwise.aqa",
-					"match": "(?i)^(?:MVN)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
+					"match": "(?i)(?:MVN)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
 					"captures": {
 						"1": {
 							"patterns": [
@@ -236,7 +260,7 @@
 				},
 				{
 					"name": "support.function.shift.aqa",
-					"match": "(?i)^(?:LSL|LSR)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
+					"match": "(?i)(?:LSL|LSR)(?:[ \\t]+([\\w#]+)?(,)?[ \\t]*([\\w#]+)?(,)?[ \\t]*([\\w#]+)?)?",
 					"captures": {
 						"1": {
 							"patterns": [
@@ -281,25 +305,15 @@
 				},
 				{
 					"name": "support.function.halt.aqa",
-					"match": "(?i)^HALT"
-				}
-			]
-		}
-	],
-	"repository": {
-		"comment": {
-			"patterns": [
-				{
-					"match": ";.*",
-					"name": "comment.line.semicolon.aqa"
+					"match": "(?i)HALT"
 				}
 			]
 		},
 		"label": {
 			"patterns": [
 				{
-					"name": "variable.named.aqa",
-					"match": "\\w+\\b"
+					"name": "entity.name.section.aqa",
+					"match": "\\S+\\b"
 				}
 			]
 		},
