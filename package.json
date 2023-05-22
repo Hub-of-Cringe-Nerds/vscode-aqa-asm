@@ -2,7 +2,7 @@
   "name": "vscode-aqa-asm",
   "displayName": "AQA Assembly",
   "description": "AQA assembly syntax highlighting support for Visual Studio Code",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": "https://github.com/Hub-of-Cringe-Nerds/vscode-aqa-asm",
   "publisher": "gingerbiscuit",
   "engines": {
