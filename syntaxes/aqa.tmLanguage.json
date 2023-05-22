@@ -156,7 +156,7 @@
 				},
 				{
 					"name": "support.function.branch.aqa",
-					"match": "(?i)(?:B)(\\w+)?(?:[ \\t]+(\\w+))?",
+					"match": "(?i)(?:B)(\\w+)?(?:[ \\t]+(\\S+))?",
 					"captures": {
 						"1": {
 							"patterns": [

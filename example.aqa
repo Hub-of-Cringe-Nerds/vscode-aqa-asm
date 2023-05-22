@@ -68,27 +68,27 @@ CMP R0, #35
 ; B
 B
 B dingus
-B din%gus       ; TODO
+B din%gus
 
 ; BEQ
 BEQ
 BEQ dingus
-BEQ din%gus     ; TODO
+BEQ din%gus
 
 ; BNE
 BNE
 BNE dingus
-BNE din%gus     ; TODO
+BNE din%gus
 
 ; BGT
 BGT
 BGT dingus
-BGT din%gus     ; TODO
+BGT din%gus
 
 ; BLT
 BLT
 BLT dingus
-BLT din%gus     ; TODO
+BLT din%gus
 
 ; AND
 AND
