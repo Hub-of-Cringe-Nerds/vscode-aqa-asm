@@ -2,7 +2,7 @@
   "name": "vscode-aqa-asm",
   "displayName": "AQA Assembly",
   "description": "AQA assembly syntax highlighting support for Visual Studio Code",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": "https://github.com/Hub-of-Cringe-Nerds/vscode-aqa-asm",
   "publisher": "gingerbiscuit",
   "engines": {
@@ -12,16 +12,25 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "aqa",
-      "aliases": ["AQA Assembly", "aqa"],
-      "extensions": [".aqa"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "aqa",
-      "scopeName": "source.aqa",
-      "path": "./syntaxes/aqa.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "aqa",
+        "aliases": [
+          "AQA Assembly",
+          "aqa"
+        ],
+        "extensions": [
+          ".aqa"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "aqa",
+        "scopeName": "source.aqa",
+        "path": "./syntaxes/aqa.tmLanguage.json"
+      }
+    ]
   }
 }
