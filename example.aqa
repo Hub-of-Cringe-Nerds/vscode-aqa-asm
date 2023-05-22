@@ -33,19 +33,19 @@ ADD R0, R1, 34      ; Should be incorrect
 ADD R0, R1, #35
 ADD R0, R1, R2
 
-; ADD
-ADD
-ADD 34              ; Should be incorrect
-ADD #35             ; Should be incorrect
-ADD R13             ; Should be incorrect
-ADD R0, R13         ; Should be incorrect
-ADD R0, #34         ; Should be incorrect
-ADD R0, 35          ; Should be incorrect
-ADD R0, R1
-ADD R0, R1, R13     ; Should be incorrect
-ADD R0, R1, 34      ; Should be incorrect
-ADD R0, R1, #35
-ADD R0, R1, R2
+; SUB
+SUB
+SUB 34              ; Should be incorrect
+SUB #35             ; Should be incorrect
+SUB R13             ; Should be incorrect
+SUB R0, R13         ; Should be incorrect
+SUB R0, #34         ; Should be incorrect
+SUB R0, 35          ; Should be incorrect
+SUB R0, R1
+SUB R0, R1, R13     ; Should be incorrect
+SUB R0, R1, 34      ; Should be incorrect
+SUB R0, R1, #35
+SUB R0, R1, R2
 
 ; MOV
 MOV
