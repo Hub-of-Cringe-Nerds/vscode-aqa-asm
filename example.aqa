@@ -1,5 +1,5 @@
-; TODO: Add something at the end of the instruction's line that'll mark anything following as invalid, unless it's only spaces, or is a comment (e.g. STR R0, #34 Dingus)
-; TODO: Add something at the end of the instruction that'll mark anything following (without a space) as invalid (e.g. HALTTT)
+; TODO: Mark any other instruction as invalid (e.g. UFS R0...)
+; TODO: Mark any instruction with less arguments than required as invalid (e.g. 'LDR R0' should be 'LDR Rd, <memory ref>')
 
 ; LDR
 LDR
@@ -8,7 +8,8 @@ LDR #35             ; Should be incorrect
 LDR R13             ; Should be incorrect
 LDR R0, #34         ; Should be incorrect
 LDR R0, R1          ; Should be incorrect
-LDR R0, 35
+LDR R0, 35, 420     ; Should be incorrect
+LDR R0, 35          ; Should be correct
 
 ; STR
 STR
@@ -17,7 +18,8 @@ STR #35             ; Should be incorrect
 STR R13             ; Should be incorrect
 STR R0, #34         ; Should be incorrect
 STR R0, R1          ; Should be incorrect
-STR R0, 35
+STR R0, 35, 42      ; Should be incorrect
+STR R0, 35          ; Should be correct
 
 ; ADD
 ADD
@@ -30,8 +32,9 @@ ADD R0, 35          ; Should be incorrect
 ADD R0, R1
 ADD R0, R1, R13     ; Should be incorrect
 ADD R0, R1, 34      ; Should be incorrect
-ADD R0, R1, #35
-ADD R0, R1, R2
+ADD R0, R1, #35, 42 ; Should be incorrect
+ADD R0, R1, #35     ; Should be correct
+ADD R0, R1, R2      ; Should be correct
 
 ; SUB
 SUB
@@ -44,8 +47,9 @@ SUB R0, 35          ; Should be incorrect
 SUB R0, R1
 SUB R0, R1, R13     ; Should be incorrect
 SUB R0, R1, 34      ; Should be incorrect
-SUB R0, R1, #35
-SUB R0, R1, R2
+SUB R0, R1, #35, 42 ; Should be incorrect
+SUB R0, R1, #35     ; Should be correct
+SUB R0, R1, R2      ; Should be correct
 
 ; MOV
 MOV
@@ -54,7 +58,8 @@ MOV #35             ; Should be incorrect
 MOV R13             ; Should be incorrect
 MOV R0, R13         ; Should be incorrect
 MOV R0, 34          ; Should be incorrect
-MOV R0, #35
+MOV R0, #35, 42     ; Should be incorrect
+MOV R0, #35         ; Should be correct
 
 ; CMP
 CMP
@@ -63,7 +68,8 @@ CMP #35             ; Should be incorrect
 CMP R13             ; Should be incorrect
 CMP R0, R13         ; Should be incorrect
 CMP R0, 34          ; Should be incorrect
-CMP R0, #35
+CMP R0, #35, 42     ; Should be incorrect
+CMP R0, #35         ; Should be correct
 
 ; B
 B
@@ -101,8 +107,9 @@ AND R0, 35          ; Should be incorrect
 AND R0, R1
 AND R0, R1, R13     ; Should be incorrect
 AND R0, R1, 34      ; Should be incorrect
-AND R0, R1, #35
-AND R0, R1, R2
+AND R0, R1, #35, 42 ; Should be incorrect
+AND R0, R1, #35     ; Should be correct
+AND R0, R1, R2      ; Should be correct
 
 ; ORR
 ORR
@@ -115,8 +122,9 @@ ORR R0, 35          ; Should be incorrect
 ORR R0, R1
 ORR R0, R1, R13     ; Should be incorrect
 ORR R0, R1, 34      ; Should be incorrect
-ORR R0, R1, #35
-ORR R0, R1, R2
+ORR R0, R1, #35, 42 ; Should be incorrect
+ORR R0, R1, #35     ; Should be correct
+ORR R0, R1, R2      ; Should be correct
 
 ; EOR
 EOR
@@ -129,8 +137,9 @@ EOR R0, 35          ; Should be incorrect
 EOR R0, R1
 EOR R0, R1, R13     ; Should be incorrect
 EOR R0, R1, 34      ; Should be incorrect
-EOR R0, R1, #35
-EOR R0, R1, R2
+EOR R0, R1, #35, 42 ; Should be incorrect
+EOR R0, R1, #35     ; Should be correct
+EOR R0, R1, R2      ; Should be correct
 
 ; MVN
 MVN
@@ -140,7 +149,8 @@ MVN R13             ; Should be incorrect
 MVN R1
 MVN R1, R13         ; Should be incorrect
 MVN R1, 34          ; Should be incorrect
-MVN R1, #35
+MVN R1, #35, 42     ; Should be incorrect
+MVN R1, #35         ; Should be correct
 
 ; LSL
 LSL
@@ -153,8 +163,9 @@ LSL R0, 35          ; Should be incorrect
 LSL R0, R1
 LSL R0, R1, R13     ; Should be incorrect
 LSL R0, R1, 34      ; Should be incorrect
-LSL R0, R1, #35
-LSL R0, R1, R2
+LSL R0, R1, #35, 42 ; Should be incorrect
+LSL R0, R1, #35     ; Should be correct
+LSL R0, R1, R2      ; Should be correct
 
 ; LSR
 LSR
@@ -167,11 +178,13 @@ LSR R0, 35          ; Should be incorrect
 LSR R0, R1
 LSR R0, R1, R13     ; Should be incorrect
 LSR R0, R1, 34      ; Should be incorrect
-LSR R0, R1, #35
-LSR R0, R1, R2
+LSR R0, R1, #35, 42 ; Should be incorrect
+LSR R0, R1, #35     ; Should be correct
+LSR R0, R1, R2      ; Should be correct
 
 ; HALT
-HALT
+HALTTT              ; Should be incorrect
+HALT                ; Should be correct
 
 ; Labels
 
