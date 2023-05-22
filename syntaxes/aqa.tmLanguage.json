@@ -312,7 +312,7 @@
 		"label": {
 			"patterns": [
 				{
-					"name": "entity.name.section.aqa",
+					"name": "variable.name.aqa",
 					"match": "\\S+\\b"
 				}
 			]
