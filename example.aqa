@@ -1,4 +1,3 @@
-; TODO: Mark any other instruction as invalid (e.g. UFS R0...)
 ; TODO: Mark any instruction with less arguments than required as invalid (e.g. 'LDR R0' should be 'LDR Rd, <memory ref>')
 
 ; LDR
@@ -189,9 +188,17 @@ HALT                ; Should be correct
 ; Labels
 
 dingus:
+MOV R0, #35
 dingus:MOV R0, #35
 dingus: MOV R0, #35
 
 din%us:
+MOV R0, #35
 din%us:MOV R0, #35
 din%us: MOV R0, #35
+
+; Invalid instructions
+
+UFS R0, R1          ; Should be incorrect
+TEQ #35             ; Should be incorrect
+PMA #34             ; Should be incorrect

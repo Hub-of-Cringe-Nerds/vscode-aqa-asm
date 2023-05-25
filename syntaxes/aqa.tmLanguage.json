@@ -352,6 +352,10 @@
 							"name": "invalid.illegal.arguments.aqa"
 						}
 					}
+				},
+				{
+					"name": "invalid.illegal.function.aqa",
+					"match": "(?i).*"
 				}
 			]
 		},
